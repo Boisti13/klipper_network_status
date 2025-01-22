@@ -3,8 +3,17 @@ Klipper Network Status Plugin
 
 Allow gcode macros to access system IP/hostname/wifi SSID/etc.
 
-To install, clone repo into your rpi home folder and run `install.sh`. You may
-also add the following to your moonraker configuration:
+To install this plugin, clone repo into your rpi home folder and run `install.sh`.
+
+```
+git clone https://github.com/goopypanther/klipper_network_status
+```
+
+```
+./klipper_network_status/install.sh
+```
+
+You may also add the following to your moonraker configuration:
 
 ```
 [update_manager client klipper_network_status]
@@ -30,17 +39,33 @@ name: Network
 type: command
 name: mDNS: {printer.network_status.mdns}
 
-[menu __main __network _ethip]
-type: command
-name: Eth IP: {printer.network_status.ethip}
+[menu __main __network __ethernet]
+type: list
+name: Ethernet
 
-[menu __main __network _wifissid]
+[menu __main __network __ethernet _ethip]
+type: command
+name: {printer.network_status.ethip}
+
+[menu __main __network __wifi]
+type: list
+name: Wifi
+
+[menu __main __network __wifi _wifissid]
 type: command
 name: Wifi SSID: {printer.network_status.wifissid}
 
-[menu __main __network _wifiip]
+[menu __main __network __wifi _wifiip]
 type: command
-name: Wifi IP: {printer.network_status.wifiip}
+name: {printer.network_status.wifiip}
+
+[menu __main __network __zerotier]
+type: list
+name: Zerotier
+
+[menu __main __network __zerotier _zeroip]
+type: command
+name: {printer.network_status.zeroip}
 ```
 
 I find that the text can be a little long for smaller displays so it may help

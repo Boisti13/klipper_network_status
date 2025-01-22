@@ -20,7 +20,7 @@ class network_status:
             except:
                 self.ethip = "N/A"
 
-             try:
+            try:
                 self.zeroip = os.popen('ip addr show ztrf2zupaa').read().split("inet ")[1].split("/")[0]
             except:
                 self.zeroip = "N/A"
