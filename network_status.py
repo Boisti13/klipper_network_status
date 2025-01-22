@@ -1,6 +1,6 @@
 # Original: https://github.com/JeremyRuhland/klipper_network_status
 # Test
-import os, logging
+import os, logging, sys
 
 class network_status:
     def __init__(self, config):
@@ -50,3 +50,10 @@ def manage_zerotier(action):
         return
 
     os.system(f"sudo systemctl {action} zerotier-one")
+
+# Check if an argument is provided
+    if len(sys.argv) != 2:
+        print("Usage: python3 manage_zerotier.py <action>")
+    else:
+        action = sys.argv[1]
+    manage_zerotier(action)
