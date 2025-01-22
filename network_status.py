@@ -43,3 +43,10 @@ class network_status:
 
 def load_config(config):
     return network_status(config)
+
+def manage_zerotier(action):
+    if action not in ["start", "stop", "restart", "status"]:
+        print("Invalid action. Use 'start', 'stop', 'restart', or 'status'.")
+        return
+
+    os.system(f"sudo systemctl {action} zerotier-one")
