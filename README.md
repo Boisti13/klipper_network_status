@@ -6,7 +6,7 @@ Allow gcode macros to access system IP/hostname/wifi SSID/etc.
 To install this plugin, clone repo into your rpi home folder and run `install.sh`.
 
 ```
-git clone https://github.com/goopypanther/klipper_network_status
+git clone https://github.com/boisti13/klipper_network_status
 ```
 
 ```
